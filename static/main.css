@@ -98,7 +98,7 @@ a:hover, .anchor-hover:hover, .remove-btn:hover, .remove-favorite-floating:hover
     z-index: 1;
 }
 
-.add-new-favorite {
+.add-new-favorite, .search-city {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,7 +139,7 @@ a:hover, .anchor-hover:hover, .remove-btn:hover, .remove-favorite-floating:hover
     width: 100%;
 }
 
-.gray-gradient {
+.gradient {
     background-image: linear-gradient(43deg, #f3f3f3 0%, #ffe100 46%, #c3c3c3 100%);
     background-clip: text;
     -webkit-background-clip: text;

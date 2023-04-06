@@ -82,11 +82,6 @@ a:hover {
     max-height: 40%;
 }
 
-/* .hourly-forecast {
-    text-align: center;
-    font-size: 0.9rem;
-} */
-
 .flex-hourly {
     display: flex;
     flex-direction: row;

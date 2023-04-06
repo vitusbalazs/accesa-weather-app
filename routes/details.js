@@ -64,4 +64,9 @@ router.get('/:city', async (req, res) => {
     res.render('details', { city, weather: weather_data, weather_forecast: forecast_data.list });
 });
 
+router.post('/', (req, res) => {
+    const city = req.fields.cityName;
+    res.redirect(`/details/${city}`);
+});
+
 export default router;

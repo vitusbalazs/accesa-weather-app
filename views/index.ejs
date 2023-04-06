@@ -13,18 +13,33 @@
 </head>
 <body>
     <!-- Black blur and floating window for adding new city -->
-    <div class="black-blur" id="black-blur" onclick="moveFloatingWindow('add-new-favorite');"></div>
+    <div class="black-blur" id="black-blur"></div>
     <div class="add-new-favorite" id="add-new-favorite">
         <div class="floating-window card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" id="floating-window">
             <form class="add-new-favorite-form" method="POST" action="/new">
                 <div class="remove-favorite-floating" onclick="moveFloatingWindow('add-new-favorite');">
                     <i class="far fa-times-circle"></i>
                 </div>
-                <div class="gray-gradient"><h3>Please enter the name of the city you want to add as your favorite:</h3></div>
+                <div class="gradient"><h3>Please enter the name of the city you want to add as your favorite:</h3></div>
                 <div class="mb-3 mt-3 cityName">
                     <input type="text" class="form-control cityName" id="cityName" name="cityName" placeholder="City name" required>
                 </div>
                 <button type="submit" class="btn btn-warning">Add city</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="search-city" id="search-city">
+        <div class="floating-window card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" id="floating-window">
+            <form class="add-new-favorite-form" method="POST" action="/details">
+                <div class="remove-favorite-floating" onclick="moveFloatingWindow('search-city');">
+                    <i class="far fa-times-circle"></i>
+                </div>
+                <div class="gradient"><h3>Please enter the name of the city:</h3></div>
+                <div class="mb-3 mt-3 cityName">
+                    <input type="text" class="form-control cityName" id="cityName" name="cityName" placeholder="City name" required>
+                </div>
+                <button type="submit" class="btn btn-warning">Search city</button>
             </form>
         </div>
     </div>
@@ -75,6 +90,12 @@
         <div class="card-clickable col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" onclick="moveFloatingWindow('add-new-favorite');">
             <img class="card-img" src="/assets/plus.png">
             <div class="title">Click here to add a new city as your favorite</div>
+        </div>
+
+        <h3>Search for city's weather forecast</h3>
+        <div class="card-clickable col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" onclick="moveFloatingWindow('search-city');">
+            <img class="card-img" src="/assets/search.png">
+            <div class="title">Search for city's weather forecast</div>
         </div>
     </div>
 </body>
