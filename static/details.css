@@ -5,12 +5,7 @@ body {
     background-position: center;
 }
 
-.remove-btn, form {
-    padding: 0px;
-    margin: 0px;
-}
-
-a, .anchor-hover, .remove-btn, .remove-favorite-floating {
+a {
     text-decoration: none !important;
     color: black !important;
     cursor: pointer;
@@ -18,7 +13,7 @@ a, .anchor-hover, .remove-btn, .remove-favorite-floating {
     transition: all 0.3s ease-in-out !important;
 }
 
-a:hover, .anchor-hover:hover, .remove-btn:hover, .remove-favorite-floating:hover {
+a:hover {
     color: #929292 !important;
 }
 
@@ -30,15 +25,6 @@ a:hover, .anchor-hover:hover, .remove-btn:hover, .remove-favorite-floating:hover
     flex-direction: row;
     justify-content: center;
     align-items: center;
-}
-
-.remove-favorite-floating {
-    width: 100%;
-    text-align: right;
-}
-
-.margin-right-5 {
-    margin-right: 5px;
 }
 
 .welcome-message {
@@ -91,65 +77,26 @@ a:hover, .anchor-hover:hover, .remove-btn:hover, .remove-favorite-floating:hover
     margin-bottom: 10px;
 }
 
-
-
-.black-blur {
-    display: none;
-    z-index: 1;
+.forecast-img {
+    max-width: 40%;
+    max-height: 40%;
 }
 
-.add-new-favorite {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 100%;
-    width: 100%;
-    z-index: 2;
-    transition: all 0.3s ease-in-out;
-}
-
-.floating-window {
+/* .hourly-forecast {
     text-align: center;
-    padding: 20px;
-}
+    font-size: 0.9rem;
+} */
 
-.black-blur {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.add-new-favorite-form {
+.flex-hourly {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-}
-
-.add-new-favorite-form > .cityName {
-    width: 100%;
-}
-.add-new-favorite-form > button {
-    width: 100%;
-}
-
-.gray-gradient {
-    background-image: linear-gradient(43deg, #f3f3f3 0%, #ffe100 46%, #c3c3c3 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
 }
 
 
 /* Different screen sizes */
 @media screen and (min-width: 0px) {
-
 }
 
 @media screen and (min-width: 576px) {

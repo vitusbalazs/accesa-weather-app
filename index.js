@@ -5,6 +5,7 @@ import path from 'path';
 import morgan from 'morgan';
 
 import rootRouter from './routes/root.js';
+import detailsRouter from './routes/details.js';
 
 const staticDir = path.join(process.cwd(), 'static');
 
@@ -36,6 +37,8 @@ app.get('/', (req, res, next) => {
     }
     next();
 })
+
+app.use('/details', detailsRouter);
 
 app.use('/', rootRouter);
 

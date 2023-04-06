@@ -96,7 +96,7 @@ router.get('/', async (req, res) => {
         weather: convert_weather[response.data.weather[0].main],
         weather2: response.data.weather[0].main,
     }
-    res.render('index', { theme: req.session.theme, cities: cities, current: currentLocation })
+    res.render('index', { theme: req.session.theme, cities: cities })
 });
 
 export default router;

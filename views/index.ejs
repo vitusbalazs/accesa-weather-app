@@ -12,6 +12,7 @@
     <script src='/main.js'></script>
 </head>
 <body>
+    <!-- Black blur and floating window for adding new city -->
     <div class="black-blur" id="black-blur" onclick="moveFloatingWindow('add-new-favorite');"></div>
     <div class="add-new-favorite" id="add-new-favorite">
         <div class="floating-window card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" id="floating-window">
@@ -28,41 +29,37 @@
         </div>
     </div>
 
+    <!-- Header, welcome message -->
     <div class="welcome-message col-12">
         <h1>Welcome to Accesa Weather app!</h1>
     </div>
 
+    <!-- Main feed -->
     <div class="content">
+        <!-- Current location, modified by the client side JavaScript -->
         <h3>Current location</h3>
-        <% if (current !== null) { %>
-            <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
-                <div class="remove-favorite">
-                    <a href="/<%= current.name %>"><i class="fas fa-eye"></i></a>
-                </div>
-                <img class="card-img" src="/assets/<%= current.weather %>.png">
-                <div class="title"><h4><%= current.name %></h4></div>
-                <!-- <div class="temporary"><%= current.weather %></div> -->
-                <div class="weather-type"><%= current.weather2 %></div>
-                <div class="temperature"><%= current.temp %><sup>o</sup>C (feels like <%= current.temp_feels_like %><sup>o</sup>C)</div>
-            </div>
-        <% } else { %>
-            <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
-                <img class="card-img" src="/assets/sad.png">
-                <div class="title">Cannot retrieve your current position</div>
-            </div>
-        <% } %>
+        <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" id="current-weather">
+            <img class="card-img" src="/assets/sad.png" id="current-image">
+            <div class="title" id="hide-on-pos">Could not retrieve your current position's weather (Please check if you have enabled the location services on this tab)</div>
+            <div class="title"><h4 id="current-title"></h4></div>
+            <div class="weather-type" id="weather-type"></div>
+            <div class="temperature" id="temperature"></div>
+        </div>
 
+        <!-- Favorites -->
         <h3>Favorites</h3>
         <% if (cities.length === 0) { %>
+            <!-- If there is no city added as your favorite, you will see this message. -->
             <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
                 <img class="card-img" src="/assets/sad.png">
                 <div class="title">There is no city added as your favorite</div>
             </div>
         <% } else { %>
+            <!-- If there is at least one city added as your favorite, you will see this message. -->
             <% for (let i = 0; i < cities.length; i++) { %>
                 <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
                     <div class="remove-favorite">
-                        <a class="margin-right-5" href="/<%= cities[i].name %>"><i class="fas fa-eye"></i></a>
+                        <a class="margin-right-5" href="/details/<%= cities[i].name %>"><i class="fas fa-eye"></i></a>
                         <form class="anchor-hover" method="POST" action="/delete/<%= cities[i].name %>"><button type="submit" class="btn remove-btn"><i class="far fa-times-circle"></i></button></form>
                     </div>
                     <img class="card-img" src="/assets/<%= cities[i].weather %>.png">
@@ -74,6 +71,7 @@
             <% } %>
         <% } %>
 
+        <!-- Add new city as your favorite -->
         <div class="card-clickable col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" onclick="moveFloatingWindow('add-new-favorite');">
             <img class="card-img" src="/assets/plus.png">
             <div class="title">Click here to add a new city as your favorite</div>
