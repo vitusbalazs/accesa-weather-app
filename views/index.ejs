@@ -44,6 +44,19 @@
         </div>
     </div>
 
+    <% if (errorMsg != null) { %>
+        <div class="error-black-blur" id="error-black-blur"></div>
+        <div class="error-window" id="error-window">
+            <div class="floating-window card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" id="error-window">
+                <div class="remove-favorite-floating" onclick="moveErrorWindow();">
+                    <i class="far fa-times-circle"></i>
+                </div>
+                
+                <div class="gradient"><h3><%= errorMsg %></h3></div>
+            </div>
+        </div>
+    <% } %>
+
     <!-- Header, welcome message -->
     <div class="welcome-message col-12">
         <h1>Welcome to Accesa Weather app!</h1>

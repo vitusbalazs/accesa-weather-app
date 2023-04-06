@@ -17,6 +17,11 @@ function moveFloatingWindow(floatingWindowId) {
     }
 }
 
+function moveErrorWindow() {
+    document.getElementById('error-black-blur').style.display = "none";
+    document.getElementById('error-window').style.bottom = "100%";
+}
+
 const WEATHER_API_KEY = '923212afde733a2f1d8901f270f95ffe';
 
 const convert_weather = {

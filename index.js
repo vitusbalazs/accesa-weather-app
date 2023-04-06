@@ -29,11 +29,14 @@ app.use(session({
 
 // Middleware that sets the default options for the session
 app.get('/', (req, res, next) => {
-    if (req.session.theme === undefined) {
-        req.session.theme = 'dark';
-    }
     if (req.session.cities === undefined) {
         req.session.cities = [];
+    }
+    if (req.session.insertError === undefined) {
+        req.session.insertError = false;
+    }
+    if (req.session.searchError === undefined) {
+        req.session.searchError = false;
     }
     next();
 })
