@@ -1,0 +1,170 @@
+body {
+    width: 100%;
+
+    background-image: url('/assets/background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.remove-btn, form {
+    padding: 0px;
+    margin: 0px;
+}
+
+a, .anchor-hover, .remove-btn, .remove-favorite-floating {
+    text-decoration: none !important;
+    color: black !important;
+    cursor: pointer;
+
+    transition: all 0.3s ease-in-out !important;
+}
+
+a:hover, .anchor-hover:hover, .remove-btn:hover, .remove-favorite-floating:hover {
+    color: #929292 !important;
+}
+
+.remove-favorite {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.remove-favorite-floating {
+    width: 100%;
+    text-align: right;
+}
+
+.margin-right-5 {
+    margin-right: 5px;
+}
+
+.welcome-message {
+    text-align: center;
+    margin: 40px 0px 40px 0px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card, .card-clickable {
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border-radius: 30px;
+    background: rgba( 255, 255, 255, 0.05 );
+    box-shadow: 0 4px 10px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 16.5px );
+    -webkit-backdrop-filter: blur( 16.5px );
+    margin-bottom: 12px;
+    padding: 10px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover, .card-clickable:hover {
+    background: rgba( 255, 255, 255, 0.2 );
+    box-shadow: 0 6px 25px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+.card-clickable {
+    cursor: pointer;
+}
+
+.title {
+    text-align: center;
+}
+
+.card-img {
+    max-width: 20%;
+    max-height: 20%;
+    margin-bottom: 10px;
+}
+
+
+
+.black-blur {
+    display: none;
+}
+
+.add-new-favorite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 100%;
+    width: 100%;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+}
+
+.floating-window {
+    text-align: center;
+    padding: 20px;
+}
+
+.black-blur {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.add-new-favorite-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-new-favorite-form > .cityName {
+    width: 100%;
+}
+.add-new-favorite-form > button {
+    width: 100%;
+}
+
+.gray-gradient {
+    background-image: linear-gradient(43deg, #f3f3f3 0%, #ffe100 46%, #c3c3c3 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+/* Different screen sizes */
+@media screen and (min-width: 0px) {
+
+}
+
+@media screen and (min-width: 576px) {
+    
+}
+
+@media screen and (min-width: 768px) {
+    
+}
+
+@media screen and (min-width: 992px) {
+    
+}
+
+@media screen and (min-width: 1200px) {
+    
+}

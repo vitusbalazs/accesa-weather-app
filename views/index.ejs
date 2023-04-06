@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Vitus Balazs - Accesa Weather app</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/font.css'>
+    <script src='/main.js'></script>
+</head>
+<body>
+    <div class="black-blur" id="black-blur" onclick="moveFloatingWindow('add-new-favorite');"></div>
+    <div class="add-new-favorite" id="add-new-favorite">
+        <div class="floating-window card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" id="floating-window">
+            <form class="add-new-favorite-form" method="POST" action="/new">
+                <div class="remove-favorite-floating" onclick="moveFloatingWindow('add-new-favorite');">
+                    <i class="far fa-times-circle"></i>
+                </div>
+                <div class="gray-gradient"><h3>Please enter the name of the city you want to add as your favorite:</h3></div>
+                <div class="mb-3 mt-3 cityName">
+                    <input type="text" class="form-control cityName" id="cityName" name="cityName" placeholder="City name" required>
+                </div>
+                <button type="submit" class="btn btn-warning">Add city</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="welcome-message col-12">
+        <h1>Welcome to Accesa Weather app!</h1>
+    </div>
+
+    <div class="content">
+        <h3>Current location</h3>
+        <% if (current !== null) { %>
+            <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
+                <div class="remove-favorite">
+                    <a href="/<%= current.name %>"><i class="fas fa-eye"></i></a>
+                </div>
+                <img class="card-img" src="/assets/<%= current.weather %>.png">
+                <div class="title"><h4><%= current.name %></h4></div>
+                <!-- <div class="temporary"><%= current.weather %></div> -->
+                <div class="weather-type"><%= current.weather2 %></div>
+                <div class="temperature"><%= current.temp %><sup>o</sup>C (feels like <%= current.temp_feels_like %><sup>o</sup>C)</div>
+            </div>
+        <% } else { %>
+            <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
+                <img class="card-img" src="/assets/sad.png">
+                <div class="title">Cannot retrieve your current position</div>
+            </div>
+        <% } %>
+
+        <h3>Favorites</h3>
+        <% if (cities.length === 0) { %>
+            <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
+                <img class="card-img" src="/assets/sad.png">
+                <div class="title">There is no city added as your favorite</div>
+            </div>
+        <% } else { %>
+            <% for (let i = 0; i < cities.length; i++) { %>
+                <div class="card col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3">
+                    <div class="remove-favorite">
+                        <a class="margin-right-5" href="/<%= cities[i].name %>"><i class="fas fa-eye"></i></a>
+                        <form class="anchor-hover" method="POST" action="/delete/<%= cities[i].name %>"><button type="submit" class="btn remove-btn"><i class="far fa-times-circle"></i></button></form>
+                    </div>
+                    <img class="card-img" src="/assets/<%= cities[i].weather %>.png">
+                    <div class="title"><h4><%= cities[i].name %></h4></div>
+                    <!-- <div class="temporary"><%= cities[i].weather %></div> -->
+                    <div class="weather-type"><%= cities[i].weather2 %></div>
+                    <div class="temperature"><%= cities[i].temp %><sup>o</sup>C (feels like <%= cities[i].temp_feels_like %><sup>o</sup>C)</div>
+                </div>
+            <% } %>
+        <% } %>
+
+        <div class="card-clickable col-8 col-sm-7 col-md-6 col-lg-4 col-xl-3" onclick="moveFloatingWindow('add-new-favorite');">
+            <img class="card-img" src="/assets/plus.png">
+            <div class="title">Click here to add a new city as your favorite</div>
+        </div>
+    </div>
+</body>
+</html>
